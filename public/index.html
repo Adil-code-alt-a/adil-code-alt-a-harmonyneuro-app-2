@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>НейроГармония</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { 
+      margin: 0; 
+      font-family: system-ui, sans-serif; 
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); 
+      text-align: center; 
+      padding: 20px; 
+      min-height: 100vh; 
+    }
+    h1 { font-size: 32px; color: #333; margin-bottom: 20px; }
+    p { font-size: 18px; color: #666; line-height: 1.5; margin-bottom: 30px; }
+    .course { 
+      background: white; 
+      border-radius: 12px; 
+      padding: 20px; 
+      margin: 20px auto; 
+      max-width: 400px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    }
+    .buy-btn { 
+      background: #0088cc; 
+      color: white; 
+      padding: 12px 24px; 
+      border: none; 
+      border-radius: 8px; 
+      font-size: 16px; 
+      cursor: pointer; 
+      margin-top: 10px; 
+    }
+    .buy-btn:hover { background: #006699; }
+  </style>
+</head>
+<body>
+  <h1>🌙 НейроГармония</h1>
+  <p>Гармония тела и души. Выбери курс:</p>
+
+  <div class="course">
+    <h2>Медитации для начинающих</h2>
+    <p>5-минутные сессии для релакса и фокуса.</p>
+    <button class="buy-btn" onclick="buyCourse('meditation', 2990)">Купить за 2990 ₽</button>
+  </div>
+
+  <div class="course">
+    <h2>Психология эмоций</h2>
+    <p>Quizzes и аффирмации для ментального баланса.</p>
+    <button class="buy-btn" onclick="buyCourse('psychology', 2990)">Купить за 2990 ₽</button>
+  </div>
+
+  <div class="course">
+    <h2>Уход за кожей + mindfulness</h2>
+    <p>Советы по skincare с психологическим уклоном.</p>
+    <button class="buy-btn" onclick="buyCourse('skincare', 2990)">Купить за 2990 ₽</button>
+  </div>
+
+  <script>
+    Telegram.WebApp.ready();
+    Telegram.WebApp.expand();
+    
+    function buyCourse(course, price) {
+      // Пока заглушка для оплаты — позже интегрируем ЮKassa
+      alert(`Покупка курса "${course}" за ${price} ₽. Оплата через ЮKassa скоро!`);
+      // Telegram.WebApp.openInvoice({ title: course, prices: [{label: 'Курс', amount: price * 100 }] });
+    }
+    
+    Telegram.WebApp.MainButton.setText('Поддержка').show().onClick(() => Telegram.WebApp.openTelegramLink('https://t.me/HarmonyNeuroBot'));
+  </script>
+</body>
+</html>
